@@ -1,0 +1,35 @@
+{
+    "name": "xTrace",
+    "description": "Web page browsing \"anti-tracking\" Chrome extension",
+    "version": "1.0.0",
+    "permissions": [
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": true
+    },
+    "options_page": "options.html",
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/xtrace16.png",
+            "32": "images/xtrace32.png",
+            "48": "images/xtrace48.png",
+            "128": "images/xtrace128.png"
+        }
+    },
+    "icons": {
+        "16": "images/xtrace16.png",
+        "32": "images/xtrace32.png",
+        "48": "images/xtrace48.png",
+        "128": "images/xtrace128.png"
+    },
+    "manifest_version": 2
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>xTrace Popup</title>
+  <style>
+    body {
+      font: 80% "Trebuchet MS", sans-serif;
+      margin: 10px;
+      background: #f5f5f5;
+      width: 300px;
+      height: auto;
+      overflow: auto;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      padding-top: 0px;
+      padding-bottom: 5px;
+      padding-right: 15px;
+      padding-left: 5px;
+    }
+
+    #popupLinks {
+      font-family: 'Arial', arial, serif;
+      font-size: 12px;
+      color: #000;
+      text-decoration: none;
+      text-align: center;
+      width: auto;
+      margin: 0px auto;
+      padding: 5px 5px 5px 5px;
+    }
+
+    a {
+      outline-color: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="popupLinks">
+    <a href="#" id="pop_donate">Donate</a>
+    | <a href="#" id="pop_options">Options</a>
+    | <a href="#" id="pop_close">Close</a>
+  </div>
+  <script type="text/javascript" src="jquery-ui/external/jquery/jquery.js"></script>
+  <script src="popup.js"></script>
+</body>
+
+</html>

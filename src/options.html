@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>xTrace Optios</title>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font: 12px "Trebuchet MS", sans-serif;
+      background-color: white;
+      margin: 10px;
+      width: 800px;
+      margin: auto;
+      padding: 10px 0px 10px;
+    }
+  </style>
+  <link type="text/css" href="jquery-ui/jquery-ui.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div style="position: relative; width: auto; height: auto;left: 0px; top: 0px; padding: 5px; overflow:hidden;"
+    class="ui-widget ui-widget-content ui-corner-all">
+    <div style="display:inline">
+      <img src="images/xtrace48.png" width="48" height="48" style="padding: 10px 0px 0px 10px">
+      <label id="labelHeaderTitle" style="font-size:36px; font-weight: bold; padding: 0px 0px 0px 20px">xTrace</label>
+    </div>
+    <br><br>
+
+    <div style="display:inline">
+      <label id="labelHeaderVersion" style="padding: 0px 0px 0px 20px">Version 1.0.0</label>
+    </div>
+  </div>
+  <div id="tabs" style="height: auto;" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+    <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+      <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0"
+        aria-controls="tabs-Lists" aria-labelledby="ui-id-1" aria-selected="true"><a href="#tabs-Lists"
+          class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1">Settings</a></li>
+      <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-About"
+        aria-labelledby="ui-id-2" aria-selected="false"><a href="#tabs-About" class="ui-tabs-anchor" role="presentation"
+          tabindex="-1" id="ui-id-2">About</a></li>
+      <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-About"
+        aria-labelledby="ui-id-3" aria-selected="false"><a href="#tabs-Donate" class="ui-tabs-anchor" role="presentation"
+          tabindex="-1" id="ui-id-3">Donate</a></li>
+    </ul>
+
+    <div id="tabs-Lists" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom"
+      role="tabpanel" aria-expanded="true" aria-hidden="false">
+
+      <h3>Blocklist</h3>
+
+      <p>Blocklisted scripts are not allowed to load from source locations when they are referenced on
+        a
+        web page.</p>
+
+      <p>
+        You can change what is in the lists here.
+        For example, to blocklist http://www.baidu.com, you enter</p>
+      <b>&nbsp;&nbsp;&nbsp;baidu.com </b><br>
+
+      <p>which also blocklists baidu.com, maps.baidu.com, hi.baidu.com, etc...</p>
+      <br>
+      <table width="600" border="0">
+        <tbody>
+          <tr>
+            <td width="500">
+              <h4>Blocklist</h4>
+              <p>
+                One entry per line, separated by line breaks [Press Enter Key]. 
+                
+                Do not leave spaces in the middle of each line.
+              </p>
+            </td>
+            <td>
+              <h4></h4>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <textarea name="blocklist" id="blocklist" cols="80" rows="12"
+                style="padding: 10px 10px 10px 10px"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button name="button_ListSave" id="button_ListSave"
+                class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"
+                aria-disabled="false"><span class="ui-button-text">Save List Changes</span></button>
+            </td>
+          </tr>
+          <tr>
+            <td height="43" colspan="2">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="tabs-About" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom"
+      role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+
+      <h3>History:</h3>
+
+      Version 1.0<br>
+
+      First Release<br>
+
+      <h3>About xTrace:</h3>
+      xTrace is a web page browsing "anti-tracking" chrome extension.
+
+      <h3>Bug Reports</h3>
+
+        <p>To report a bug, please copy and paste the following information to a bug report at:
+
+        </p>
+        <div style="padding: 0px 0px 0px 50px">
+            <h3>
+                <a
+                    href="https://github.com/StevenX911/xTrace/issues">https://github.com/StevenX911/xTrace/issues</a>
+            </h3>
+        </div>
+        Remember to include steps to reproduce the bug or a link to a site where the bug occurred.
+        <p></p>
+    </div>
+    <div id="tabs-Donate" aria-labelledby="ui-id-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom"
+      role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+
+      <h3>Thank you for your donation:</h3>
+
+      <p>
+        —— 路漫漫其修远兮，吾将上下而求索
+      </p>
+      <img src="images/donate.jpeg" width="360" height="360" style="padding: 10px 0px 0px 10px">
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="jquery-ui/external/jquery/jquery.js"></script>
+<script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
+<script src="options.js"></script>
+
+</html>
