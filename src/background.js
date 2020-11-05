@@ -5,7 +5,7 @@
 'use strict';
 
 // 内置默认阻断的URL
-var defaultblocklist = [
+let defaultblocklist = [
   "://hm.baidu.com/",                              // -- 屏蔽某度追踪
   "://www.google-analytics.com/",                  // -- 屏蔽某歌追踪
   "://www.googletagmanager.com/",                  // -- 屏蔽某歌追踪
@@ -15,18 +15,7 @@ var defaultblocklist = [
   "://csdnimg.cn/release/blogv2/dist/pc/js/detail" // -- 屏蔽某站'阅读更多'
 ];
 
-var TOSTRING = Function.call.bind(Object.prototype.toString);
-
-function saveBlocklist(newblocklist){
-  if(newblocklist !=null && TOSTRING(newblocklist) === '[object Array]'){
-    defaultblocklist = newblocklist;
-    chrome.storage.sync.set({
-      blockurls: newblocklist
-    }, function () {
-      console.log('更新数据');
-    });
-  }
-}
+const TOSTRING = Function.call.bind(Object.prototype.toString);
 
 chrome.runtime.onInstalled.addListener(function () {
   chrome.storage.sync.get('blockurls', function(data) {
@@ -36,12 +25,12 @@ chrome.runtime.onInstalled.addListener(function () {
           defaultblocklist.push(x);
         }
       });
-      console.log('同步数据');
+      console.log('Sync chrome datas successfully!');
     } else {
       chrome.storage.sync.set({
         blockurls: defaultblocklist
       }, function () {
-        console.log('初始化');
+        console.log('Firstly run and init datas.');
       });
     }
   });
@@ -56,6 +45,10 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
                 namespace,
                 storageChange.oldValue,
                 storageChange.newValue);
+    if(TOSTRING(storageChange.newValue) === '[object Array]'){
+      defaultblocklist = storageChange.newValue;
+      console.log('update defaultblocklist');
+    }
   }
 });
 

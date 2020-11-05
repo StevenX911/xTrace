@@ -1,20 +1,30 @@
 // Copyright 2020 StevenX911. All rights reserved.
 // Use of this source code is governed by a MIT license that can be
 // found in the LICENSE file.
-const bgPage = chrome.extension.getBackgroundPage();
+let localblocklist = [];
+const TOSTRING = Function.call.bind(Object.prototype.toString);
 
 document.addEventListener('DOMContentLoaded', function () {
-
   $(function () {
     $('#tabs').tabs();
     $("button[name=button_ListSave]").button();
-    updateBlocklistDisplay();
+    chrome.storage.sync.get('blockurls', function (data) {
+      if (data.blockurls != null && TOSTRING(data.blockurls) === '[object Array]') {
+        localblocklist = data.blockurls;
+        console.log('init local datas');
+        updateBlocklistDisplay();
+      }
+    });
   });
 
   $(function () {
     $("#button_ListSave").click(function () {
-      save();
-      saveButtonAnimate(this.id);
+      try {
+        save();
+        saveButtonAnimate(this.id, 'Saved Successfully!');
+      } catch (err) {
+        saveButtonAnimate(this.id, err.msg);
+      }
     });
   });
 });
@@ -28,17 +38,27 @@ function lines(s) {
 }
 
 function save() {
-  bgPage.saveBlocklist(lines($('#blocklist').val()));
-  updateBlocklistDisplay();
+  let newblocklist = lines($('#blocklist').val());
+  if (newblocklist != null && TOSTRING(newblocklist) === '[object Array]') {
+    chrome.storage.sync.set({
+      blockurls: newblocklist
+    }, function () {
+      console.log('Update sync datas successfully!');
+    });
+    localblocklist = newblocklist;
+    updateBlocklistDisplay();
+  } else {
+    throw new Error('Data Error! Save failed!')
+  }
 }
 
-function saveButtonAnimate(buttonId) {
-  $('#' + buttonId).button('option', 'label', 'SAVED!');
+function saveButtonAnimate(buttonId, msg) {
+  $('#' + buttonId).button('option', 'label', msg);
   setTimeout(function () {
     $('#' + buttonId).button('option', 'label', 'Save List Changes');
   }, 1500);
 }
 
 function updateBlocklistDisplay() {
-  $('#blocklist').val(bgPage.defaultblocklist.join('\n'));
+  $('#blocklist').val(localblocklist.join('\n'));
 }
