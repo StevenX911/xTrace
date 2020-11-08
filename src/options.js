@@ -6,7 +6,13 @@ const TOSTRING = Function.call.bind(Object.prototype.toString);
 
 document.addEventListener('DOMContentLoaded', function () {
   $(function () {
-    $('#tabs').tabs();
+    if(location.hash === '#Donate'){
+      $('#tabs').tabs({active: 2});
+    } else if(location.hash === '#About'){
+      $('#tabs').tabs({active: 1});
+    } else {
+      $('#tabs').tabs({active: 0});
+    }
     $("button[name=button_ListSave]").button();
     chrome.storage.sync.get('blockurls', function (data) {
       if (data.blockurls != null && TOSTRING(data.blockurls) === '[object Array]') {

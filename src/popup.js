@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
     window.close();
   });
   $("#pop_donate").click(function () {
-    chrome.tabs.create({
-      url: "https://www.tripfe.cn/sponsorship/?from=chrome-extension"
-    });
+    openTab(chrome.extension.getURL('options.html#Donate'));
+  });
+  $("#pop_about").click(function () {
+    openTab(chrome.extension.getURL('options.html#About'));
   });
 })
 
