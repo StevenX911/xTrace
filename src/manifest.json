@@ -1,7 +1,7 @@
 {
     "name": "xTrace",
     "description": "Web page browsing \"anti-tracking\" Chrome extension",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "permissions": [
         "storage",
         "webRequest",
