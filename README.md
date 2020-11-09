@@ -4,7 +4,7 @@ xTrace是一款Chrome扩展插件，用于屏蔽某些追踪用户行为的脚�
 
 #### 如何安装
 **方式一：在线安装**
-用户可以通过Chrome Web Store进行在线安装，这里是[直达链接]()
+用户可以通过Chrome Web Store进行在线安装，这里是[直达链接](https://chrome.google.com/webstore/detail/xtrace/gnoegjcomgnaofcdeckopfoajfbboplb?hl=en-US)
 > 使用在线安装可以自动获得本插件(`xTrace`)功能更新
 
 **方式二：离线安装**
