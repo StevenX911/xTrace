@@ -1,6 +1,6 @@
 # xTrace Change Log
 
-##### v1.0.2
+#### v1.0.2
 - fix bug: 解决浏览器重启后，内置URL覆盖用户自定义URL的问题
 
 #### v1.0.1
