@@ -25,12 +25,31 @@ chrome.runtime.onInstalled.addListener(function () {
           defaultblocklist.push(x);
         }
       });
-      console.log('Sync chrome datas successfully!');
+      console.log('onInstalled: Sync chrome datas successfully!');
     } else {
       chrome.storage.sync.set({
         blockurls: defaultblocklist
       }, function () {
-        console.log('Firstly run and init datas.');
+        console.log('onInstalled: Firstly run and init datas.');
+      });
+    }
+  });
+});
+
+chrome.runtime.onStartup.addListener(function(){
+  chrome.storage.sync.get('blockurls', function(data) {
+    if(data.blockurls != null && TOSTRING(data.blockurls) === '[object Array]'){
+      data.blockurls.forEach(x => {
+        if(!defaultblocklist.includes(x)){
+          defaultblocklist.push(x);
+        }
+      });
+      console.log('onStartup: Sync chrome datas successfully!');
+    } else {
+      chrome.storage.sync.set({
+        blockurls: defaultblocklist
+      }, function () {
+        console.log('onStartup: Firstly run and init datas.');
       });
     }
   });
